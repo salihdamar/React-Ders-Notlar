@@ -1,0 +1,36 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+#appLogin{
+ 
+  background-color:lightcoral;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 5px 10px 8px 2px rgba(0, 0, 0, 0.5);
+  width: 300px;
+}
+
+
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+input:focus {
+  border-color: #ebad96;
+  background-color: #ebad96;
+  box-shadow: 0 0 5px #dba58b80;
+}
