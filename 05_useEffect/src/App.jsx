@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import VeriCekme from "./VeriCekme";
 
 function App() {
   const [firstName, setFirstName] = useState("");
@@ -23,6 +24,14 @@ function App() {
     console.log("ilk render edildiğinde ve firstname ve lastname değiştiğinde");
   });
 
+  const [section, setSection] = useState("posts");
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/${section}`)
+      .then((response) => response.json())
+      .then((json) => setItems(json));
+  }, [section]);
   return (
     <>
       <div>
@@ -37,6 +46,23 @@ function App() {
       <div>
         <button onClick={() => setFirstName("Eftelya")}>Adı Değiştir</button>
         <button onClick={() => setLastName("Damar")}>Soyadı Değiştir</button>
+      </div>
+      <div>
+        <div>
+          <button onClick={() => setSection("posts")}>Posts</button>
+          <button onClick={() => setSection("users")}>Users</button>
+          <button onClick={() => setSection("comments")}>Comments</button>
+        </div>
+        <h1> {section} </h1>
+      </div>
+
+      <div>
+        <h2>Çekilen Veriler</h2>
+        {items.map((item, i) => (
+          <pre style={{ textAlign: "left" }} key={i}>
+            {JSON.stringify(item["title"], null, 2)}
+          </pre>
+        ))}
       </div>
     </>
   );

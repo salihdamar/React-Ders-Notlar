@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function PersonInfo() {
   const [showInfo, setShowInfo] = useState(false);
